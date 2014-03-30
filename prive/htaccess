@@ -1,0 +1,5 @@
+AuthName "Vous n'avez pas accès à ce fichier" 
+AuthType Basic
+AuthUserFile "/home/site/www/admin/.htpasswd"
+Require valid-user
+
