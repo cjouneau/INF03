@@ -7,4 +7,3 @@ Reste à faire :
 - coder le fait que la lettre est paramétrable
 - rendre ça beau 
 
-
