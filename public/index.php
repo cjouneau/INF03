@@ -2,7 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 <head>
     <title>La newsletter de MonSite.fr</title>
+    <meta http-equiv=Content-Type content="text/html; charset=utf-8">
+     <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
  <?php
     if(isset($_GET['email'])) // On vérifie que la variable $_GET['email'] existe.
@@ -77,13 +80,42 @@
     else // Si les champs n'ont pas été remplis.
     {
 ?>
-La newsletter :
+Paramétrez votre newsletter "Approche Utilisateur et Design Web":
+<!-- boutons radios pour inscription / désinscription et checkbox pour paramétrage-->
 <form method="post" action="index.php?email=1">
 Adresse e-mail : <input type="text" name="email" size="25" /><br />
-<input type="radio" name="new" value="0" />S''inscrire
-<input type="radio" name="new" value="1" />Se désinscrire<br />
-<input type="submit" value="Envoyer" name="submit" /> <input type="reset" name="reset" value="Effacer" />
+
+<input type="radio" name="new" value="0" onClick="afficher();"/>S'inscrire <br />
+
+<p id="champ_cache">
+<input type="checkbox" name="new" value="UX" />Actualit&eacute;s de l'UX design<br />
+<input type="checkbox" name="new" value="Actus" />Derniers billets des étudiants<br />
+<input type="checkbox" name="new" value="Projets" />Les projets des étudiants<br />
+<input type="checkbox" name="new" value="Admin" />Les actualités administratives<br />
+</p>
+
+<input type="radio" name="new" value="1" onClick="cacher();" />Se d&eacute;sinscrire<br />
+
+
+<input type="submit" value="Envoyer" name="submit" /> <br /> <input type="reset" name="reset" value="Effacer" />
 </form>
+
+<!-- Pour cacher la possibilité de paramétrer la newletter sauf si on coche "s'inscrire"-->
+
+<script type="text/javascript">
+document.getElementById("champ_cache").style.display = "none";
+ 
+function afficher()
+{
+    document.getElementById("champ_cache").style.display = "block";
+}
+
+function cacher()
+{
+    document.getElementById("champ_cache").style.display = "none";
+}
+
+</script>
 <?php
     }
 ?>
